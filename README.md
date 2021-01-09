@@ -1,9 +1,5 @@
 # FunBox
 FunBox is a mobile application which helps people who wants to archive watched movies, series or played games.
-
-# GoldenShelf
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,6 +28,7 @@ FunBox is a mobile application which helps people who wants to archive watched m
 <img src= "Some images/5.png" width="240" height="350">
 <img src= "Some images/6.png" width="240" height="350">
   </div>
+  </br>
    <div>
   <img src= "Some images/7.png" width="240" height="350">
 <img src= "Some images/8.png" width="240" height="350">
