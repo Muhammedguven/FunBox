@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Archivist.Views.FilterPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0"
+                                                                        EndPoint="0,1">
+            <GradientStop Color="#1f6f8b"
+                                                                         Offset="0.1"/>
+            <GradientStop Color="#222831"
+                                                                         Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Content>
+
+        <StackLayout Padding="20,10,20,0">
+            <StackLayout Orientation="Horizontal" Padding="0,0,0,0">
+                <ImageButton Clicked="Back_Clicked"  BackgroundColor="Transparent" Source="back.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="StartAndExpand" VerticalOptions="Center" ></ImageButton>
+                <Image Source="funbox.png" HorizontalOptions="End" HeightRequest="80" WidthRequest="80" ></Image>
+            </StackLayout>
+            <Label Text=" Item Type" FontSize="18"  TextColor="White" Opacity="0.5"></Label>
+            <BoxView HeightRequest="1" BackgroundColor="White" Opacity="0.5"></BoxView>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="movie" VerticalOptions="Center" CheckedChanged="Movies_CheckedChanged" Color="#E50914"></CheckBox>
+                <Label Text="Movies" FontSize="17" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="White"></Label>
+                
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="serie" VerticalOptions="Center" CheckedChanged="Series_CheckedChanged" Color="#ff7b54"></CheckBox>
+                <Label Text="Series" FontSize="17" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="White"></Label>
+                
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="game" VerticalOptions="Center" CheckedChanged="Games_CheckedChanged" Color="#28df99"></CheckBox>
+                <Label Text="Games" FontSize="17" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="White"></Label>
+                
+            </StackLayout>
+            <Label Text=" Sort By" FontSize="18"   TextColor="White" Opacity="0.5" Padding="0,20,0,0"></Label>
+            <BoxView HeightRequest="1" BackgroundColor="White" Opacity="0.5"></BoxView>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="oldest" CheckedChanged="OldToNew_CheckedChanged"   VerticalOptions="Center" Color="#EEEEEE"></CheckBox>
+                <Label Text="Oldest to Newest" FontSize="15" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#EEEEEE"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="newest" CheckedChanged="NewToOld_CheckedChanged" VerticalOptions="Center" Color="#EEEEEE"></CheckBox>
+                <Label Text="Newest to Oldest" FontSize="15" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#EEEEEE"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="highest" CheckedChanged="HighToLow_CheckedChanged"  VerticalOptions="Center" Color="#EEEEEE"></CheckBox>
+                <Label Text="High to Low Rate" FontSize="15" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#EEEEEE"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <CheckBox x:Name="lowest"  CheckedChanged="LowToHigh_CheckedChanged" VerticalOptions="Center" Color="#EEEEEE"></CheckBox>
+                <Label Text="Low to High Rate" FontSize="15" VerticalTextAlignment="Center" FontAttributes="Bold" TextColor="#EEEEEE"></Label>
+            </StackLayout>
+            <StackLayout Padding="0,20">
+                <Label x:Name="Error" FontSize="12" HorizontalOptions="Center" Text="                   " TextColor="#db6400" FontAttributes="Bold" CharacterSpacing="3" ></Label>
+                <Button Clicked="Filter_Clicked" HorizontalOptions="Center" Text="Filter" BorderColor="#343a40" BackgroundColor="#db6400" CornerRadius="30" FontAttributes="Bold" FontSize="15" TextColor="White" Padding="100,0,100,0"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

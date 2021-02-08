@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Archivist.Views.FilterListPage"
+             xmlns:Converter="clr-namespace:Archivist.Converters">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0"
+                                                                        EndPoint="0,1">
+            <GradientStop Color="#1f6f8b"
+                                                                         Offset="0.1"/>
+            <GradientStop Color="White"
+                                                                         Offset="0.6"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converter:ByteArrayToImageSourceConverter x:Key="bic"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <AbsoluteLayout Padding="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+
+            <StackLayout >
+                <StackLayout Orientation="Horizontal" Padding="20,10,20,0">
+                    <ImageButton Clicked="Back_Clicked"  BackgroundColor="Transparent" Source="back.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="Start" VerticalOptions="Center" ></ImageButton>
+                    <Label x:Name="topLabel" FontSize="18" FontAttributes="Bold" VerticalOptions="Center" TextColor="White" HorizontalOptions="CenterAndExpand"></Label>
+                    <Image Source="funbox.png" HorizontalOptions="End" HeightRequest="60" WidthRequest="60" ></Image>
+                </StackLayout>
+                <ListView x:Name="FilterList" RowHeight="115" Grid.Row="1"
+                                      Margin="5,0">
+                    <ListView.Header>
+                        <Label x:Name="filterName" TextColor="#222831" FontAttributes="Bold" FontSize="20" HorizontalOptions="Center"></Label>
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame CornerRadius="15" Padding="0,0,0,0"  Margin="0,3"  >
+                                    <Frame.Background>
+                                        <LinearGradientBrush StartPoint="0,0"
+                                                                        EndPoint="1,0">
+                                            <GradientStop Color="#222831"
+                                                                         Offset="0.7"/>
+                                            <GradientStop Color="#222831"
+                                                                         Offset="1.0"/>
+                                        </LinearGradientBrush>
+                                    </Frame.Background>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout HorizontalOptions="Start" >
+                                            <Image Source="{Binding Image,Converter={StaticResource bic}}" Aspect="AspectFill" WidthRequest="120" VerticalOptions="Center" HeightRequest="120"/>
+                                        </StackLayout>
+                                        <BoxView WidthRequest="1" BackgroundColor="#564d4d" ></BoxView>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="StartAndExpand" VerticalOptions="Start" Padding="5,10">
+                                            <Label Text="{Binding ItemName}" TextColor="#ffffff" FontSize="17" FontAttributes="Bold" VerticalOptions="Center" />
+                                            <Label Text="{Binding Date}" TextColor="#ffffff" FontSize="14" FontAttributes="Bold" VerticalOptions="Center" />
+                                            <Label Text="{Binding Description}" TextColor="#ffffff" FontSize="12" FontAttributes="Bold" VerticalOptions="End" Padding="0,0,50,0" />
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="End" Orientation="Vertical"  Padding="0,0">
+                                            <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                                                <Label Text="{Binding ItemID}" FontSize="0" IsVisible="False"></Label>
+                                                <Label Text="{Binding PublisherEmail}" FontSize="0" IsVisible="False"></Label>
+                                                <Label Text="{Binding Type}" FontSize="0" IsVisible="False"></Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Vertical"  Padding="0,0">
+                                                <Frame VerticalOptions="End" HorizontalOptions="End" CornerRadius="10" BackgroundColor="White" Padding="0,0,0,0" Margin="0,0,0,0">
+                                                    <Frame.Background>
+                                                        <LinearGradientBrush StartPoint="0,0"
+                                                                        EndPoint="1,0">
+                                                            <GradientStop Color="#e8e9a1"
+                                                                         Offset="1.0"/>
+                                                            <GradientStop Color="#e6b566"
+                                                                         Offset="1.0"/>
+                                                        </LinearGradientBrush>
+                                                    </Frame.Background>
+                                                    <StackLayout Orientation="Horizontal" Padding="5,0">
+                                                        <Label Text="Rate :" FontSize="17" FontAttributes="Bold" VerticalTextAlignment="Center" TextColor="#222831"></Label>
+                                                        <Label Text="{Binding Point}" TextColor="#222831" FontSize="17" FontAttributes="Bold" />
+                                                    </StackLayout>
+                                                </Frame>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
+    </AbsoluteLayout>
+</ContentPage>
